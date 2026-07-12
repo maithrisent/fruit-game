@@ -1,0 +1,26 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class DifficultyButton : MonoBehaviour
+{
+    private Button button;
+    private GameManager gameManager;
+    public float difficulty;
+
+    void Start()
+    {
+        button = GetComponent<Button>();
+        button.onClick.AddListener(SetDifficulty); 
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
+
+    // void Update()
+    // {
+        
+    // }
+
+    void SetDifficulty(){
+        //Debug.Log(gameObject.name + " was clicked");
+        gameManager.StartGame(difficulty); // takes the value attached to the button in the editor and sends it to the start game
+    }
+}
